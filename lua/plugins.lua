@@ -32,6 +32,7 @@ packadd('vim-jsonnet')
 packadd('vim-markdown')
 packadd('vim-terraform')
 
+packadd_defer('gitsigns')
 packadd_defer('nvim-web-devicons')
 packadd_defer('octo')
 packadd_defer('syntastic')

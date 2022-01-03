@@ -37,3 +37,6 @@
 [submodule "pack/plugins/opt/vim-terraform"]
 	path = pack/plugins/opt/vim-terraform
 	url = git@github.com:hashivim/vim-terraform.git
+[submodule "pack/plugins/opt/gitsigns"]
+	path = pack/plugins/opt/gitsigns
+	url = git@github.com:lewis6991/gitsigns.nvim.git
