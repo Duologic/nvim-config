@@ -40,3 +40,15 @@
 [submodule "pack/plugins/opt/gitsigns"]
 	path = pack/plugins/opt/gitsigns
 	url = git@github.com:lewis6991/gitsigns.nvim.git
+[submodule "pack/plugins/opt/nvim-cmp"]
+	path = pack/plugins/opt/nvim-cmp
+	url = git@github.com:hrsh7th/nvim-cmp.git
+[submodule "pack/plugins/opt/cmp-nvim-lsp"]
+	path = pack/plugins/opt/cmp-nvim-lsp
+	url = git@github.com:hrsh7th/cmp-nvim-lsp.git
+[submodule "pack/plugins/opt/luasnip"]
+	path = pack/plugins/opt/luasnip
+	url = git@github.com:L3MON4D3/LuaSnip.git
+[submodule "pack/plugins/opt/cmp-luasnip"]
+	path = pack/plugins/opt/cmp-luasnip
+	url = git@github.com:saadparwaiz1/cmp_luasnip.git

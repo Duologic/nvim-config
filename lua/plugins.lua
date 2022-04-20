@@ -26,20 +26,28 @@ end
 packadd('plenary')
 packadd('neosolarized')
 
+packadd('luasnip')
+packadd('nvim-cmp')
+packadd('cmp-luasnip')
+
+packadd('cmp-nvim-lsp')
 packadd('nvim-lspconfig')
+
 
 packadd('vim-jsonnet')
 packadd('vim-markdown')
 packadd('vim-terraform')
 
-packadd_defer('gitsigns')
-packadd_defer('nvim-web-devicons')
-packadd_defer('octo')
-packadd_defer('syntastic')
-packadd_defer('telescope')
-packadd_defer('vim-fugitive')
-packadd_defer('vim-rhubarb')
-packadd_defer('vim-surround')
+packadd('nvim-web-devicons')
+
+packadd('gitsigns')
+packadd('syntastic')
+packadd('telescope')
+packadd('vim-fugitive')
+packadd('vim-rhubarb')
+packadd('vim-surround')
+
+packadd('octo')
 
 
 vim.defer_fn(function()

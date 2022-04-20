@@ -2,6 +2,7 @@
 vim.g.mapleader = '\\'
 vim.g.maplocalleader = ','
 vim.o.cmdheight = 2
+vim.o.completeopt = 'menu,menuone,noselect,preview'
 vim.o.encoding = 'utf-8'
 vim.o.laststatus = 2
 vim.o.mouse = 'a'
