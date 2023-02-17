@@ -12,3 +12,8 @@ vim.cmd([[
 vim.cmd([[
     nnoremap gx :!xdg-open <cWORD> &<cr><cr>
 ]])
+
+-- Save without quiting
+vim.cmd([[
+    nnoremap zS :w<cr>
+]])

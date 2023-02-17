@@ -67,3 +67,8 @@ vim.cmd([[
         \   exe "normal! g`\"" |
         \ endif
 ]])
+
+-- Shortcut for Git/fugitive
+vim.cmd([[
+    command! -nargs=0 Gblame Git blame
+]])
