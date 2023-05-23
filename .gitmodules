@@ -19,9 +19,6 @@
 [submodule "pack/plugins/opt/plenary"]
 	path = pack/plugins/opt/plenary
 	url = git@github.com:nvim-lua/plenary.nvim.git
-[submodule "pack/plugins/opt/octo"]
-	path = pack/plugins/opt/octo
-	url = git@github.com:pwntester/octo.nvim.git
 [submodule "pack/plugins/opt/vim-rhubarb"]
 	path = pack/plugins/opt/vim-rhubarb
 	url = git@github.com:tpope/vim-rhubarb.git
@@ -52,3 +49,6 @@
 [submodule "pack/plugins/opt/cmp-luasnip"]
 	path = pack/plugins/opt/cmp-luasnip
 	url = git@github.com:saadparwaiz1/cmp_luasnip.git
+[submodule "pack/plugins/opt/vim-cue"]
+	path = pack/plugins/opt/vim-cue
+	url = https://github.com/jjo/vim-cue.git

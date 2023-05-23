@@ -1,8 +1,9 @@
-require('telescope').setup()
+local telescope = require('telescope')
+local telescope_builtin = require('telescope.builtin')
 
-vim.cmd([[
-    nnoremap <leader>ff :Telescope find_files<cr>
-    nnoremap <leader>fg :Telescope live_grep<cr>
-    nnoremap <leader>fb :Telescope buffers<cr>
-    nnoremap <leader>fh :Telescope help_tags<cr>
-]])
+telescope.setup()
+
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { noremap = true })
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { noremap = true })
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { noremap = true })
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { noremap = true })

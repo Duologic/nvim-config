@@ -1,6 +1,13 @@
-vim.cmd([[
-    let g:terraform_align=1
-    let g:terraform_fold_sections=1
-    let g:terraform_fmt_on_save=1
-    autocmd FileType terraform setlocal foldmarker={,}
-]])
+vim.g.terraform_align = 1
+vim.g.terraform_fold_sections = 1
+vim.g.terraform_fmt_on_save = 1
+
+vim.api.nvim_create_autocmd(
+    'FileType',
+    {
+        pattern = { 'terraform' },
+        callback = function()
+            vim.opt_local.foldmarker = '{,}'
+        end,
+    }
+)

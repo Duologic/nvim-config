@@ -1,12 +1,12 @@
 -- Source plugin and its configuration immediately
 -- @param plugin String with name of plugin as subdirectory in 'pack'
 local packadd = function(plugin)
-  -- Add plugin
-  vim.cmd(string.format([[packadd %s]], plugin))
+    -- Add plugin
+    vim.cmd(string.format([[packadd %s]], plugin))
 
-  -- Try execute its configuration
-  -- NOTE: configuration file should have the same name as plugin directory
-  pcall(require, 'configs.' .. plugin)
+    -- Try execute its configuration
+    -- NOTE: configuration file should have the same name as plugin directory
+    pcall(require, 'configs.' .. plugin)
 end
 
 -- Defer plugin source right after Vim is loaded
@@ -16,9 +16,9 @@ end
 --
 -- @param plugin String with name of plugin as subdirectory in 'pack'
 local packadd_defer = function(plugin)
-  vim.defer_fn(function()
-    packadd(plugin)
-  end, 0)
+    vim.defer_fn(function()
+        packadd(plugin)
+    end, 0)
 end
 
 -- add plugins here
@@ -37,6 +37,7 @@ packadd('nvim-lspconfig')
 packadd('vim-jsonnet')
 packadd('vim-markdown')
 packadd('vim-terraform')
+packadd('vim-cue')
 
 packadd('nvim-web-devicons')
 
@@ -46,9 +47,6 @@ packadd('telescope')
 packadd('vim-fugitive')
 packadd('vim-rhubarb')
 packadd('vim-surround')
-
-packadd('octo')
-
 
 vim.defer_fn(function()
     vim.cmd('helptags ALL')

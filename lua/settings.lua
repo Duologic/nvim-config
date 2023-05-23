@@ -19,25 +19,42 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Cursorline
-vim.o.cursorline = true
+--vim.o.cursorline = true
 -- Only show cursorline in the current window and in normal mode.
-vim.cmd([[
-  augroup cline
-      au!
-      au WinLeave * set nocursorline
-      au WinEnter * set cursorline
-      au InsertEnter * set nocursorline
-      au InsertLeave * set cursorline
-  augroup END
-]])
+local cline = vim.api.nvim_create_augroup(
+    'cline',
+    { clear = true }
+)
+vim.api.nvim_create_autocmd(
+    { 'WinLeave', 'InsertEnter' },
+    {
+        pattern = '*',
+        group = cline,
+        command = 'set nocursorline',
+    }
+)
+vim.api.nvim_create_autocmd(
+    { 'WinEnter', 'InsertLeave' },
+    {
+        pattern = '*',
+        group = cline,
+        command = 'set cursorline',
+    }
+)
 
 -- Linebreak and indent behavior
 vim.o.linebreak = true
 vim.o.textwidth = 90
-vim.o.showbreak= '↪'
+vim.o.showbreak = '↪'
+vim.o.breakindent = true
 vim.o.list = true
-vim.o.listchars = 'tab:→ ,trail:·,nbsp:␣,extends:◣,precedes:◢'
---- vim.o.listchars = 'tab:→ ,trail:·,eol:$,nbsp:␣,extends:◣,precedes:◢'
+vim.opt.listchars = {
+    tab = '→ ',
+    trail = '·',
+    nbsp = '␣',
+    extends = '◣',
+    precedes = '◢',
+}
 --- vim.diagnostic.match('highlight trailing space', '/%s+$/', {})
 
 --- Indentation
@@ -55,20 +72,28 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Spellcheck
-vim.cmd([[
-    autocmd FileType markdown setlocal spell spelllang=en_us
-    autocmd FileType gitcommit setlocal spell spelllang=en_us
-]])
+vim.api.nvim_create_autocmd(
+    'FileType',
+    {
+        pattern = { 'gitcommit', 'markdown' },
+        callback = function()
+            vim.opt_local.spell = true
+            vim.opt_local.spelllang = 'en_gb'
+        end
+    }
+)
 
 -- Restore last cursor position
-vim.cmd([[
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
-]])
+vim.api.nvim_create_autocmd(
+    'BufReadPost',
+    {
+        command = [[
+            if line("'\"") > 0 && line("'\"") <= line("$") |
+              exe "normal! g`\"" |
+            endif
+        ]]
+    }
+)
 
 -- Shortcut for Git/fugitive
-vim.cmd([[
-    command! -nargs=0 Gblame Git blame
-]])
+vim.api.nvim_create_user_command('Gblame', 'Git blame', {})
