@@ -26,13 +26,16 @@ end
 packadd('plenary')
 packadd('neosolarized')
 
-packadd('luasnip')
-packadd('nvim-cmp')
-packadd('cmp-luasnip')
+packadd('which-key')
 
+packadd('cmp-luasnip')
+packadd('luasnip')
+
+packadd('cmp-nvim-lsp-signature-help')
 packadd('cmp-nvim-lsp')
 packadd('nvim-lspconfig')
 
+packadd('nvim-cmp')
 
 packadd('vim-jsonnet')
 packadd('vim-markdown')

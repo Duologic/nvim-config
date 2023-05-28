@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd(
             -- Buffer local mappings.
             -- See `:help vim.lsp.*` for documentation on any of the below functions
             local opts = { buffer = ev.buf }
-            vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+            vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, opts)
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -111,6 +111,7 @@ lspconfig.jsonnet_ls.setup {
     flags = {
         debounce_text_changes = 150,
     },
+    cmd = { 'jsonnet-language-server', '--lint' },
     settings = {
         formatting = {
             UseImplicitPlus = false,

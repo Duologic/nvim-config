@@ -52,3 +52,9 @@
 [submodule "pack/plugins/opt/vim-cue"]
 	path = pack/plugins/opt/vim-cue
 	url = https://github.com/jjo/vim-cue.git
+[submodule "pack/plugins/opt/cmp-nvim-lsp-signature-help"]
+	path = pack/plugins/opt/cmp-nvim-lsp-signature-help
+	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git
+[submodule "pack/plugins/opt/which-key"]
+	path = pack/plugins/opt/which-key
+	url = https://github.com/folke/which-key.nvim.git

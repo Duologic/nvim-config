@@ -97,3 +97,31 @@ vim.api.nvim_create_autocmd(
 
 -- Shortcut for Git/fugitive
 vim.api.nvim_create_user_command('Gblame', 'Git blame', {})
+
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+
+-- absolute width of netrw window
+vim.g.netrw_winsize = -28
+-- do not display info on the top of window
+vim.g.netrw_banner = 0
+-- tree-view
+vim.g.netrw_liststyle = 3
+-- sort is affecting only: directories on the top, files below
+vim.g.netrw_sort_sequence = '[\\/]$,*'
+-- use the previous window to open file
+vim.g.netrw_browse_split = 4
+
+vim.keymap.set('n', '<leader>e', '<cmd>Lexplore<cr>')
+vim.api.nvim_create_autocmd(
+    { 'FileType' },
+    {
+        pattern = 'netrw',
+        callback = function()
+            -- Each time Lexplore is toggled on, it will create a new buffer but not wipe the previous one.
+            -- This will wipeout netrw buffers when they are hidden.
+            vim.opt_local.bufhidden = 'wipe'
+        end
+    }
+)
