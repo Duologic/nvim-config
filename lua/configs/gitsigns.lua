@@ -12,7 +12,10 @@ require('gitsigns').setup({
             'n',
             '<leader>tb',
             gs.toggle_current_line_blame,
-            { buffer = bufnr }
+            {
+                buffer = bufnr,
+                desc = 'toggle current line blame',
+            }
         )
     end
 })

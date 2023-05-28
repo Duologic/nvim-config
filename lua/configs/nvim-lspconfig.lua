@@ -1,9 +1,9 @@
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<space>d', vim.diagnostic.open_float, { desc = 'open diagnostic in window' })
+vim.keymap.set('n', '<space>e', vim.diagnostic.setloclist, { desc = 'open diagnostics in loclist' })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'goto prev diagnostic' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'goto next diagnostic' })
 
 local function list_workspace_folders()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
@@ -36,21 +36,36 @@ vim.api.nvim_create_autocmd(
             -- Buffer local mappings.
             -- See `:help vim.lsp.*` for documentation on any of the below functions
             local opts = { buffer = ev.buf }
+            function OptsWithDescription(desc)
+                return { buffer = opts.buffer, desc = 'LSP ' .. desc }
+            end
+
             vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, opts)
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-            vim.keymap.set('n', 'gp', peek_definition, opts)
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-            vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-            vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-            vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-            vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-            vim.keymap.set('n', '<space>wl', list_workspace_folders, opts)
-            vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-            vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-            vim.keymap.set({ 'n', 'v' }, '<space>f', format, opts)
+            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
+                OptsWithDescription('declaration'))
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
+                OptsWithDescription('definition'))
+            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,
+                OptsWithDescription('implementation'))
+            vim.keymap.set('n', 'gp', peek_definition,
+                OptsWithDescription('peek definition'))
+            vim.keymap.set('n', 'gr', vim.lsp.buf.references,
+                OptsWithDescription('references'))
+            vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition,
+                OptsWithDescription('type definition'))
+            vim.keymap.set('n', '<space>R', vim.lsp.buf.rename,
+                OptsWithDescription('rename'))
+            vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder,
+                OptsWithDescription('add workspace folder'))
+            vim.keymap.set('n', '<space>wl', list_workspace_folders,
+                OptsWithDescription('list workspace folders'))
+            vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder,
+                OptsWithDescription('remove workspace folder'))
+            vim.keymap.set({ 'n', 'v' }, '<space>a', vim.lsp.buf.code_action,
+                OptsWithDescription('code action'))
+            vim.keymap.set({ 'n', 'v' }, '<space>f', format,
+                OptsWithDescription('format'))
         end,
     }
 )
