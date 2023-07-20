@@ -126,7 +126,7 @@ lspconfig.jsonnet_ls.setup {
     flags = {
         debounce_text_changes = 150,
     },
-    cmd = { 'jsonnet-language-server', '--lint' },
+    cmd = { 'jsonnet-language-server' }, --, '--lint' },
     settings = {
         formatting = {
             UseImplicitPlus = false,

@@ -54,6 +54,7 @@ vim.opt.listchars = {
     nbsp = '␣',
     extends = '◣',
     precedes = '◢',
+    conceal = '˚',
 }
 --- vim.diagnostic.match('highlight trailing space', '/%s+$/', {})
 
@@ -64,7 +65,7 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 
 -- Format
-vim.o.formatoptions = 'tcrqnb1j'
+vim.o.formatoptions = 'rqnb1j'
 vim.o.fixeol = false
 
 -- Search options

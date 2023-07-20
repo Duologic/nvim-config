@@ -24,7 +24,9 @@ end
 -- add plugins here
 
 packadd('plenary')
-packadd('neosolarized')
+--packadd('neosolarized')
+packadd('solarized-nvim')
+packadd('lualine-nvim')
 
 packadd('which-key')
 
@@ -40,9 +42,10 @@ packadd('nvim-cmp')
 packadd('vim-jsonnet')
 packadd('vim-markdown')
 packadd('vim-terraform')
-packadd('vim-cue')
+--packadd('vim-cue')
 
-packadd('nvim-web-devicons')
+packadd('nvim-treesitter')
+--packadd('nvim-web-devicons')
 
 packadd('gitsigns')
 packadd('syntastic')

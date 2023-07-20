@@ -58,3 +58,15 @@
 [submodule "pack/plugins/opt/which-key"]
 	path = pack/plugins/opt/which-key
 	url = https://github.com/folke/which-key.nvim.git
+[submodule "pack/plugins/opt/nvim-treesitter"]
+	path = pack/plugins/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "pack/plugins/opt/solarized-nvim"]
+	path = pack/plugins/opt/solarized-nvim
+	url = https://github.com/shaunsingh/solarized.nvim.git
+[submodule "pack/plugins/opt/lualine-nvim"]
+	path = pack/plugins/opt/lualine-nvim
+	url = https://github.com/nvim-lualine/lualine.nvim.git
+[submodule "pack/plugins/opt/nvim-solarized-lua"]
+	path = pack/plugins/opt/nvim-solarized-lua
+	url = https://github.com/ishan9299/nvim-solarized-lua.git
