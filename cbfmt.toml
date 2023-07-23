@@ -1,0 +1,2 @@
+[languages]
+jsonnet = ["jsonnetfmt --no-use-implicit-plus -"]

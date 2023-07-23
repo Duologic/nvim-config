@@ -36,15 +36,16 @@ packadd('luasnip')
 packadd('cmp-nvim-lsp-signature-help')
 packadd('cmp-nvim-lsp')
 packadd('nvim-lspconfig')
+packadd('null-ls-nvim')
 
 packadd('nvim-cmp')
 
-packadd('vim-jsonnet')
-packadd('vim-markdown')
+packadd('nvim-treesitter')
+
+--packadd('vim-markdown')
 packadd('vim-terraform')
 --packadd('vim-cue')
 
-packadd('nvim-treesitter')
 --packadd('nvim-web-devicons')
 
 packadd('gitsigns')
