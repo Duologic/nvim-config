@@ -10,19 +10,14 @@ parser_config.jsonnet = {
     filetype = 'jsonnet',                                        -- if filetype does not match the parser name
 }
 
-require 'nvim-treesitter'.setup {}
-require 'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter'.setup()
+require 'nvim-treesitter.configs'.setup({
     highlight = { enable = true }
-}
-
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter' }, {
-    group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
-    callback = function()
-        vim.opt.foldmethod = 'expr'
-        vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
-        vim.opt.foldlevel  = 1000
-    end
 })
+
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr   = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo.foldlevel  = 1000
 
 -- Get highlight group
 vim.api.nvim_create_user_command(
