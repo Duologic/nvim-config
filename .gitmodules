@@ -1,6 +1,3 @@
-[submodule "pack/plugins/opt/syntastic"]
-	path = pack/plugins/opt/syntastic
-	url = git@github.com:vim-syntastic/syntastic.git
 [submodule "pack/plugins/opt/vim-surround"]
 	path = pack/plugins/opt/vim-surround
 	url = git@github.com:tpope/vim-surround.git

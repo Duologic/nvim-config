@@ -49,7 +49,6 @@ packadd('vim-terraform')
 --packadd('nvim-web-devicons')
 
 packadd('gitsigns')
-packadd('syntastic')
 packadd('telescope')
 packadd('vim-fugitive')
 packadd('vim-rhubarb')
