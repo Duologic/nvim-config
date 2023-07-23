@@ -40,6 +40,7 @@ packadd('null-ls-nvim')
 packadd('nvim-cmp')
 
 packadd('nvim-treesitter')
+packadd('nvim-jsonnet')
 
 --packadd('vim-markdown')
 packadd('vim-terraform')

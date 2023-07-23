@@ -67,3 +67,6 @@
 [submodule "pack/plugins/opt/null-ls-nvim"]
 	path = pack/plugins/opt/null-ls-nvim
 	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
+[submodule "pack/plugins/opt/nvim-jsonnet"]
+	path = pack/plugins/opt/nvim-jsonnet
+	url = https://github.com/Duologic/nvim-jsonnet.git
