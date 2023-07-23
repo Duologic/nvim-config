@@ -27,38 +27,6 @@ vim.api.nvim_create_user_command(
     end,
     { nargs = '?' })
 
-vim.api.nvim_create_user_command(
-    'JsonnetFmt',
-    function(opts)
-        if opts.range == 0 then
-            vim.lsp.buf.format()
-            return
-        end
-        local line1 = vim.api.nvim_buf_get_mark(0, '<')[1]
-        local line2 = vim.api.nvim_buf_get_mark(0, '>')[1]
-        local selection = vim.api.nvim_buf_get_lines(0, line1 - 1, line2, true)
-
-        local bufnr = vim.fn.bufadd('temp.jsonnet')
-        vim.api.nvim_buf_set_option(bufnr, 'filetype', 'jsonnet')
-        require('lspconfig.configs')['jsonnet_ls'].launch(bufnr)
-        --vim.lsp.buf_attach_client(bufnr, 1)
-
-        vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, selection)
-        vim.api.nvim_buf_set_option(bufnr, 'buflisted', true)
-        --vim.api.nvim_buf_set_option(bufnr, 'buftype', 'nofile')
-        --vim.api.nvim_buf_set_option(bufnr, 'bufhidden', 'wipe')
-        --vim.api.nvim_buf_set_option(bufnr, 'swapfile', false)
-
-        vim.lsp.buf.format({ bufnr = bufnr })
-        local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, true)
-        --print(vim.inspect(lines))
-        vim.api.nvim_buf_set_lines(
-            0, line1 - 1, line2, true,
-            lines
-        )
-    end,
-    { range = true })
-
 vim.api.nvim_create_autocmd(
     'FileType',
     {
