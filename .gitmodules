@@ -1,6 +1,3 @@
-[submodule "pack/plugins/opt/neosolarized"]
-	path = pack/plugins/opt/neosolarized
-	url = git@github.com:overcache/NeoSolarized.git
 [submodule "pack/plugins/opt/syntastic"]
 	path = pack/plugins/opt/syntastic
 	url = git@github.com:vim-syntastic/syntastic.git

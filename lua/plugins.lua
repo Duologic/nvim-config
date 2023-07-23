@@ -24,7 +24,6 @@ end
 -- add plugins here
 
 packadd('plenary')
---packadd('neosolarized')
 packadd('solarized-nvim')
 packadd('lualine-nvim')
 
