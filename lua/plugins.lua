@@ -40,6 +40,7 @@ packadd('null-ls-nvim')
 packadd('nvim-cmp')
 
 packadd('nvim-treesitter')
+packadd('nvim-treesitter-refactor')
 packadd('nvim-jsonnet')
 
 --packadd('vim-markdown')
@@ -48,11 +49,13 @@ packadd('vim-terraform')
 
 --packadd('nvim-web-devicons')
 
-packadd('gitsigns')
-packadd('telescope')
-packadd('vim-fugitive')
-packadd('vim-rhubarb')
-packadd('vim-surround')
+packadd_defer('gitsigns')
+packadd_defer('telescope')
+packadd_defer('vim-fugitive')
+packadd_defer('vim-rhubarb')
+packadd_defer('vim-surround')
+packadd_defer('nvim-colorizer')
+packadd_defer('pretty-fold-nvim')
 
 vim.defer_fn(function()
     vim.cmd('helptags ALL')

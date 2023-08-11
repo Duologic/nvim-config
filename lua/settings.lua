@@ -16,27 +16,45 @@ vim.o.colorcolumn = '90'
 
 -- Linenumber
 vim.o.number = true
-vim.o.relativenumber = true
+--vim.o.relativenumber = true
+-- Don't show relativenumber in insert mode or NetrwTreeListing.
+local relnum = vim.api.nvim_create_augroup(
+    'relnum',
+    { clear = true }
+)
+vim.api.nvim_create_autocmd(
+    { 'InsertEnter' },
+    {
+        group = relnum,
+        command = 'set norelativenumber',
+    }
+)
+vim.api.nvim_create_autocmd(
+    { 'BufWinEnter', 'WinEnter', 'InsertLeave' },
+    {
+        pattern = '!NetrwTreeListing',
+        group = relnum,
+        command = 'set relativenumber',
+    }
+)
 
 -- Cursorline
 --vim.o.cursorline = true
--- Only show cursorline in the current window and in normal mode.
+-- Only show cursorline in the current window.
 local cline = vim.api.nvim_create_augroup(
     'cline',
     { clear = true }
 )
 vim.api.nvim_create_autocmd(
-    { 'WinLeave', 'InsertEnter' },
+    { 'BufWinLeave', 'WinLeave' },
     {
-        pattern = '*',
         group = cline,
         command = 'set nocursorline',
     }
 )
 vim.api.nvim_create_autocmd(
-    { 'WinEnter', 'InsertLeave' },
+    { 'BufWinEnter', 'WinEnter' },
     {
-        pattern = '*',
         group = cline,
         command = 'set cursorline',
     }
@@ -111,8 +129,6 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 -- sort is affecting only: directories on the top, files below
 vim.g.netrw_sort_sequence = '[\\/]$,*'
--- use the previous window to open file
-vim.g.netrw_browse_split = 4
 
 vim.keymap.set('n', '<leader>e', '<cmd>Lexplore<cr>')
 vim.api.nvim_create_autocmd(

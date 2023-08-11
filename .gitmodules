@@ -67,3 +67,12 @@
 [submodule "pack/plugins/opt/nvim-jsonnet"]
 	path = pack/plugins/opt/nvim-jsonnet
 	url = https://github.com/Duologic/nvim-jsonnet.git
+[submodule "pack/plugins/opt/nvim-treesitter-refactor"]
+	path = pack/plugins/opt/nvim-treesitter-refactor
+	url = https://github.com/nvim-treesitter/nvim-treesitter-refactor.git
+[submodule "pack/plugins/opt/nvim-colorizer"]
+	path = pack/plugins/opt/nvim-colorizer
+	url = https://github.com/norcalli/nvim-colorizer.lua.git
+[submodule "pack/plugins/opt/pretty-fold-nvim"]
+	path = pack/plugins/opt/pretty-fold-nvim
+	url = https://github.com/anuvyklack/pretty-fold.nvim.git

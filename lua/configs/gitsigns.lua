@@ -1,4 +1,7 @@
 require('gitsigns').setup({
+    signs = {
+        add = { text = '+' },
+    },
     current_line_blame = true,
     current_line_blame_opts = {
         virt_text = false,
