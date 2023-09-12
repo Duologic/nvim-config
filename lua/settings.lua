@@ -149,3 +149,20 @@ vim.api.nvim_create_autocmd(
         end
     }
 )
+
+vim.api.nvim_create_user_command(
+    'EditPadWithTheme',
+    function()
+        vim.cmd([[
+            hi VertSplit guifg=bg
+            hi SignColumn guibg=bg
+            hi LineNr guibg=bg
+            hi Normal guifg=black
+            Gitsigns toggle_signs
+            Centerpad
+        ]])
+        vim.o.fillchars = 'eob: '
+        vim.o.colorcolumn = 0
+        vim.o.textwidth = 0
+    end,
+    {})
