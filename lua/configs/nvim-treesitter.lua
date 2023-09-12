@@ -54,22 +54,6 @@ vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr   = 'v:lua.vim.treesitter.foldexpr()'
 vim.wo.foldlevel  = 1000
 
--- Get highlight group
-vim.api.nvim_create_user_command(
-    'TSCaptureUnderCursor',
-    function()
-        local _tokens = vim.lsp.semantic_tokens.get_at_pos() or {}
-        local tokens = {}
-        for _, t in ipairs(tokens) do
-            tokens[#tokens + 1] = t.type
-        end
-        vim.print({
-            LSPSemanticTokens = tokens,
-            TreeSitterCaptures = vim.treesitter.get_captures_at_cursor(0),
-        })
-    end,
-    {})
-
 -- Manually highlight definition usage
 vim.api.nvim_create_user_command(
     'TSDefinitionUsage',
