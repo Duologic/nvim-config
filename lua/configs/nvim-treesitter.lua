@@ -1,14 +1,14 @@
-local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
-parser_config.jsonnet = {
-    install_info = {
-        url = '/home/duologic/git/Duologic/tree-sitter-jsonnet', -- local path or git repo
-        files = { 'src/parser.c', 'src/scanner.c' },             -- note that some parsers also require src/scanner.c or src/scanner.cc
-        -- optional entries:
-        generate_requires_npm = true,                            -- if stand-alone parser without npm dependencies
-        requires_generate_from_grammar = true,                   -- if folder contains pre-generated src/parser.c
-    },
-    filetype = 'jsonnet',                                        -- if filetype does not match the parser name
-}
+-- local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
+-- parser_config.jsonnet = {
+--     install_info = {
+--         url = '/home/duologic/git/Duologic/tree-sitter-jsonnet', -- local path or git repo
+--         files = { 'src/parser.c', 'src/scanner.c' },             -- note that some parsers also require src/scanner.c or src/scanner.cc
+--         -- optional entries:
+--         generate_requires_npm = true,                            -- if stand-alone parser without npm dependencies
+--         requires_generate_from_grammar = true,                   -- if folder contains pre-generated src/parser.c
+--     },
+--     filetype = 'jsonnet',                                        -- if filetype does not match the parser name
+-- }
 
 require 'nvim-treesitter'.setup()
 require 'nvim-treesitter.configs'.setup({
@@ -58,10 +58,33 @@ vim.wo.foldlevel  = 1000
 vim.api.nvim_create_user_command(
     'TSCaptureUnderCursor',
     function()
-        print(
-            vim.inspect(
-                vim.treesitter.get_captures_at_cursor(0)
-            )
-        )
+        local _tokens = vim.lsp.semantic_tokens.get_at_pos() or {}
+        local tokens = {}
+        for _, t in ipairs(tokens) do
+            tokens[#tokens + 1] = t.type
+        end
+        vim.print({
+            LSPSemanticTokens = tokens,
+            TreeSitterCaptures = vim.treesitter.get_captures_at_cursor(0),
+        })
     end,
     {})
+
+-- Manually highlight definition usage
+vim.api.nvim_create_user_command(
+    'TSDefinitionUsage',
+    function()
+        local highlight_definitions = require('nvim-treesitter-refactor.highlight_definitions')
+        highlight_definitions.clear_usage_highlights(0)
+        highlight_definitions.highlight_usages(0)
+    end,
+    {})
+vim.api.nvim_create_user_command(
+    'TSDefinitionUsageClear',
+    function()
+        local highlight_definitions = require('nvim-treesitter-refactor.highlight_definitions')
+        highlight_definitions.clear_usage_highlights(0)
+    end,
+    {})
+vim.keymap.set('n', '<leader>dv', '<cmd>TSDefinitionUsage<cr>')
+vim.keymap.set('n', '<leader>dc', '<cmd>TSDefinitionUsageClear<cr>')

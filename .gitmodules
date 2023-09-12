@@ -76,3 +76,12 @@
 [submodule "pack/plugins/opt/pretty-fold-nvim"]
 	path = pack/plugins/opt/pretty-fold-nvim
 	url = https://github.com/anuvyklack/pretty-fold.nvim.git
+[submodule "pack/plugins/opt/nvim-aerial"]
+	path = pack/plugins/opt/nvim-aerial
+	url = https://github.com/stevearc/aerial.nvim.git
+[submodule "pack/plugins/opt/todo-comments"]
+	path = pack/plugins/opt/todo-comments
+	url = https://github.com/folke/todo-comments.nvim.git
+[submodule "pack/plugins/opt/centerpad"]
+	path = pack/plugins/opt/centerpad
+	url = https://github.com/smithbm2316/centerpad.nvim.git

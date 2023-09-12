@@ -11,3 +11,6 @@ vim.keymap.set('n', 'gx', '<cmd>!xdg-open <cWORD> &<cr><cr>', { noremap = true }
 
 -- Save without quiting
 vim.keymap.set('n', 'ZS', '<cmd>w<cr>', { noremap = true })
+
+-- Folding with Control+Mouse
+vim.keymap.set('n', '<C-LeftMouse>', '<LeftMouse>za', { noremap = true })

@@ -16,7 +16,7 @@ vim.o.colorcolumn = '90'
 
 -- Linenumber
 vim.o.number = true
---vim.o.relativenumber = true
+vim.o.relativenumber = true
 -- Don't show relativenumber in insert mode or NetrwTreeListing.
 local relnum = vim.api.nvim_create_augroup(
     'relnum',
@@ -27,6 +27,13 @@ vim.api.nvim_create_autocmd(
     {
         group = relnum,
         command = 'set norelativenumber',
+    }
+)
+vim.api.nvim_create_autocmd(
+    { 'InsertLeave' },
+    {
+        group = relnum,
+        command = 'set relativenumber',
     }
 )
 vim.api.nvim_create_autocmd(
@@ -62,13 +69,13 @@ vim.api.nvim_create_autocmd(
 
 -- Linebreak and indent behavior
 vim.o.linebreak = true
-vim.o.textwidth = 90
+vim.o.textwidth = 0
 vim.o.showbreak = '↪'
 vim.o.breakindent = true
 vim.o.list = true
 vim.opt.listchars = {
     tab = '→ ',
-    trail = '·',
+    trail = '•',
     nbsp = '␣',
     extends = '◣',
     precedes = '◢',

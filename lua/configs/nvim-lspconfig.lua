@@ -66,10 +66,20 @@ vim.api.nvim_create_autocmd(
                 OptsWithDescription('code action'))
             vim.keymap.set({ 'n', 'v' }, '<space>f', format,
                 OptsWithDescription('format'))
+
+
+            local client = vim.lsp.get_client_by_id(ev.data.client_id)
+            if client.name == 'gopls' and not client.server_capabilities.semanticTokensProvider then
+                local semantic = client.config.capabilities.textDocument.semanticTokens
+                client.server_capabilities.semanticTokensProvider = {
+                    full = true,
+                    legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+                    range = true,
+                }
+            end
         end,
     }
 )
-
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -82,6 +92,11 @@ lspconfig.gopls.setup {
     flags = {
         debounce_text_changes = 150,
     },
+    settings = {
+        gopls = {
+            semanticTokens = true
+        }
+    }
 }
 
 lspconfig.lua_ls.setup {
@@ -120,6 +135,19 @@ lspconfig.lua_ls.setup {
                 }
             }
         },
+    },
+}
+lspconfig.bashls.setup {
+    capabilities = capabilities,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    settings = {
+        bashIde = {
+            workspace = {
+                shellcheckPath = '/home/duologic/bin/shellcheck',
+            }
+        }
     },
 }
 
