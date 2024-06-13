@@ -14,3 +14,4 @@ vim.keymap.set('n', 'ZS', '<cmd>w<cr>', { noremap = true })
 
 -- Folding with Control+Mouse
 vim.keymap.set('n', '<C-LeftMouse>', '<LeftMouse>za', { noremap = true })
+vim.keymap.set('n', '<C-RightMouse>', '<RightMouse>zA', { noremap = true })

@@ -19,7 +19,7 @@ local function peek_definition()
         if result == nil or vim.tbl_isempty(result) then
             return nil
         end
-        vim.lsp.util.preview_location(result[1])
+        vim.lsp.util.preview_location(result[1], {})
     end)
 end
 
@@ -82,16 +82,12 @@ vim.api.nvim_create_autocmd(
 )
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require('lspconfig')
 
 lspconfig.gopls.setup {
     capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    },
     settings = {
         gopls = {
             semanticTokens = true
@@ -101,9 +97,6 @@ lspconfig.gopls.setup {
 
 lspconfig.lua_ls.setup {
     capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    },
     settings = {
         Lua = {
             runtime = {
@@ -139,9 +132,6 @@ lspconfig.lua_ls.setup {
 }
 lspconfig.bashls.setup {
     capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    },
     settings = {
         bashIde = {
             workspace = {
@@ -149,19 +139,6 @@ lspconfig.bashls.setup {
             }
         }
     },
-}
-
-lspconfig.jsonnet_ls.setup {
-    capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    cmd = { 'jsonnet-language-server' }, --, '--lint' },
-    settings = {
-        formatting = {
-            UseImplicitPlus = false,
-        }
-    }
 }
 
 -- Format on save

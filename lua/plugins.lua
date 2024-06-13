@@ -28,6 +28,7 @@ packadd('solarized-nvim')
 packadd('lualine-nvim')
 
 packadd('which-key')
+packadd('cloak-nvim')
 
 packadd('cmp-luasnip')
 packadd('luasnip')
@@ -37,11 +38,16 @@ packadd('cmp-nvim-lsp')
 packadd('nvim-lspconfig')
 packadd('null-ls-nvim')
 
-packadd('nvim-cmp')
+packadd('nvim-dap')
+packadd_defer('nvim-nio')
+packadd_defer('nvim-dap-ui')
 
 packadd('nvim-treesitter')
 packadd('nvim-treesitter-refactor')
 packadd('nvim-jsonnet')
+
+packadd('cmp-path')
+packadd('nvim-cmp')
 
 --packadd('vim-markdown')
 packadd('vim-terraform')

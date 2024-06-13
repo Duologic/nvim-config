@@ -85,3 +85,18 @@
 [submodule "pack/plugins/opt/centerpad"]
 	path = pack/plugins/opt/centerpad
 	url = https://github.com/smithbm2316/centerpad.nvim.git
+[submodule "pack/plugins/opt/cmp-path"]
+	path = pack/plugins/opt/cmp-path
+	url = https://github.com/hrsh7th/cmp-path
+[submodule "pack/plugins/opt/cloak-nvim"]
+	path = pack/plugins/opt/cloak-nvim
+	url = https://github.com/laytan/cloak.nvim.git
+[submodule "pack/plugins/opt/nvim-dap"]
+	path = pack/plugins/opt/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap.git
+[submodule "pack/plugins/opt/nvim-dap-ui"]
+	path = pack/plugins/opt/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui
+[submodule "pack/plugins/opt/nvim-nio"]
+	path = pack/plugins/opt/nvim-nio
+	url = https://github.com/nvim-neotest/nvim-nio

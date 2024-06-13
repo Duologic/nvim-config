@@ -1,5 +1,5 @@
 require('nvim-jsonnet').setup({
-    jsonnet_bin = 'jrsonnet',
-    jsonnet_string_bin = 'jrsonnet',
-    use_tanka_if_possible = true,
+    load_lsp_config = true,
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    load_dap_config = true,
 })

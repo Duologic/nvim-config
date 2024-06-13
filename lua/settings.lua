@@ -9,6 +9,9 @@ vim.o.mouse = 'a'
 vim.o.visualbell = true
 vim.o.wildmenu = true
 
+-- Turn off as it crashes Nvim when tree-sitter is enabled
+vim.o.autoread = false
+
 -- Theme and colors
 vim.o.background = 'light'
 vim.o.termguicolors = true
